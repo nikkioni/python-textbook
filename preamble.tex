@@ -1,0 +1,31 @@
+\usepackage{graphicx} % For images 
+
+\usepackage{xcolor} % Allows defining custom colours
+\usepackage{minted} % Required for syntax highlighting 
+
+\usepackage{soul} % Allows highlighting 
+\definecolor{hlred}{RGB}{250, 105. 97} % Colour to show syntax error 
+
+% Set default options for all minted options 
+\setminted{
+    linenos,             % Show line numbers
+    numbersep=8pt,       % Space between numbers and code
+    frame=single,        % Put a box/frame around the code
+    framesep=2mm,        % Space between frame and code
+    fontsize=\footnotesize, % Font size of the code
+    breaklines=true,     % Automatically wrap long lines
+    tabsize=4,           % How many spaces a tab represents
+    style=vs,       % Colour scheme (Visual Studio style here; can change)
+}
+
+% Indentation of bullet points 
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.5cm}
+\setlist[enumerate]{leftmargin=1.5cm}
+
+\usepackage{csquotes} % For correct quotation marks 
+
+% So tables can wrap and have line breaks
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % Centred
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % Left-aligned
