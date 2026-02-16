@@ -1393,7 +1393,7 @@ Comparison operators are used to compare two values:
 \end{tabular}
 \end{center}
 
-Comparison operators return \mintinline{python}{True} or \mintinline{python}{False} based on the comparison. //
+Comparison operators return \mintinline{python}{True} or \mintinline{python}{False} based on the comparison. \\
 
 Example:
 \begin{minted}{python}
@@ -1510,3 +1510,553 @@ print("z" not in txt) # Returns True
 
 \subsubsection{Bitwise Operators}
 Bitwise operators are used to compare (binary) numbers: 
+
+\begin{center}
+\begin{tabular}{|l|l|L{7cm}|l|}
+    \hline
+    \textbf{Operator} & \textbf{Name} & \textbf{Description} & \textbf{Example} \\
+    \hline
+    \mintinline{python}{&} & AND & Sets each bit to 1 if both bits are 1 & \mintinline{python}{x & y} \\
+    \hline 
+    \mintinline{python}{|} & OR & Sets each bit to 1 if of of two bits are 1 & \mintinline{python}{x | y} \\
+    \hline 
+    \mintinline{python}{^} & XOR & Sets each bit to 1 if only one of two bits are 1 & \mintinline{python}{x ^ y} \\
+    \hline 
+    \mintinline{python}{~} & NOT & Inverts all the bits & \mintinline{python}{~x} \\
+    \hline 
+    \mintinline{python}{<<} & Zero fill left shift & Shift right by pushing zeros in rom the right and let the leftmost bits fall off & \mintinline{python}{x << 2} \\
+    \hline 
+    \mintinline{python}{>>} & Zero fill right shift  & Shift right by pushing copies of the leftmost bit from the left and let the rightmost bits fall off & \mintinline{python}{x >> 2} \\
+    \hline 
+\end{tabular}
+\end{center}
+
+Examples \\ 
+
+The \mintinline{python}{&} operator compares each bit and set it to 1 if both are 1, otherwise it is set to 0. \\
+
+Example 1:
+\begin{minted}{python}
+x = 3 # The binary representation of 3 is 0011 
+y = 6  # The binary representation of 6 is 0110 
+
+# The & operator compares the bits and returns 0010, which is 2 in decimal
+print(x & y) # Output is 2
+\end{minted}
+
+The \mintinline{python}{|} operator compares each bit and set it to 1 if one or both is 1, otherwise it is set to 0. \\
+
+Example 2:
+\begin{minted}{python}
+# The | operator compares the bits and returns 0111, which is 7 in decimal
+print(3 | 6) # Output is 7
+\end{minted}
+
+The \mintinline{python}{^} operator compares each bit and set it to 1 if only one is 1, otherwise (if both are 1 or both are 0) it is set to 0. \\
+
+Example 3:
+\begin{minted}{python}
+# The ^ operator compares the bits and returns 0101, which is 5 in decimal
+print(3 ^ 6) # Output is 5
+\end{minted}
+
+The \mintinline{python}{~} operator inverts all the bits (0 becomes 1, and 1 becomes 0). \\
+
+Example 4:
+\begin{minted}{python}
+# The ~ operator inverts the bits and returns 1001, which is -7 in decimal (two's complement)
+print(~6) # Output is -7
+\end{minted}
+
+The \mintinline{python}{<<} operator is a bitwise left shift. \\
+
+Example 5:
+\begin{minted}{python}
+# Three is written as 0011, shifting this two to left gives 1100, which is 12 in decimal
+print(3 << 2) # Output is 12
+\end{minted} 
+
+The \mintinline{python}{>>} operator is a bitwise right shift. \\
+
+Example 6:
+\begin{minted}{python}
+# Three is written as 0110, shifting this two to right gives 0001, which is 1 in decimal
+print(6 >> 2) # Output is 1
+\end{minted} 
+
+\subsubsection{Operator Precedence}
+Operator precedence describes the order in which operators are performed. \\
+
+The precedence order is described in the table below, starting with the highest precedence at the top:
+
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Operator} & \textbf{Description} \\
+    \hline
+    \mintinline{python}{()} & Parentheses \\
+    \hline 
+    \mintinline{python}{**} & Exponentiation \\
+    \hline 
+    \mintinline{python}{+x -x ~x} & Unary plus, unary minus, bitwise NOT \\
+    \hline 
+    \mintinline{python}{* / // %} & Multiplication, division, floor division, modulus \\
+    \hline 
+    \mintinline{python}{+ -} & Addition and subtraction \\
+    \hline 
+    \mintinline{python}{<< >>} & Bitwise left and right shifts \\
+    \hline 
+    \mintinline{python}{&} & Bitwise AND \\
+    \hline 
+    \mintinline{python}{^} & Bitwise XOR \\
+    \hline 
+    \mintinline{python}{|} & Bitwise OR \\
+    \hline 
+    \mintinline{python}{== != > >= < <= is is not in not in} & Comparisons, identity, membership operators \\
+    \hline 
+    \mintinline{python}{not} & Logical NOT\\
+    \hline 
+    \mintinline{python}{and} & AND\\
+    \hline 
+    \mintinline{python}{or} & OR \\
+    \hline 
+\end{tabular}
+\end{center}
+
+If two operators have the same precedence, the expression is evaluated from left to right.  \\
+
+Examples:
+\begin{minted}{python}
+print((6 + 3) - (6 + 2)) # Output is 1
+print(100 + 5 * 3) # Output is 115
+print(5 + 4 - 7 + 3) # Output is 5
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Create two variables \mintinline{python}{a =} \textbf{15} and\mintinline{python}{a =} \textbf{4}.
+    \item Print the result of \mintinline{python}{a} \textbf{modulus} \mintinline{python}{b}.
+    \item Print the result of \mintinline{python}{a} \textbf{floor division} \mintinline{python}{b}. 
+    \item Print the result of \mintinline{python}{a} \textbf{to the power of} \mintinline{python}{b}.
+    \item Use an \textbf{assignment operator} to add \textbf{10} to \mintinline{python}{a}.
+    \item Print the result of comparing \mintinline{python}{a > b}.  
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+# Create variables
+a = 15
+b = 4
+
+print(a % b) # Output is 3
+print(a // b) # Output is 3
+print(a ** b) # Output is 50624
+
+a += 10 # a = 25
+
+print(a > b) # Output is True
+\end{minted}
+
+\subsection{Python Collections (Arrays)}
+There are four collection data types in the Python programming language:
+\begin{itemize}
+    \item \textbf{List} is a collection which is ordered and changeable. Allows duplicate members.
+    \item \textbf{Tuple} is a collection which is unordered and unchangeable. Allows duplicate members.
+    \item \textbf{Set} is a collection which is unordered, unchangeable (buy you can remove and/or add items whenever), and unindexed. No duplicate members.
+    \item \textbf{Dictionary} is a collection which is ordered (as of Python 3.7) and changeable. No duplicate members. 
+\end{itemize}
+
+When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security. 
+
+\subsection{Python Lists}
+\begin{itemize}
+    \item Lists are used to store multiple items in a single variable.
+    \item Lists are one of 4 built-in data types in Python used to store collections of data.
+    \item The other three are tuple, set, dictionary, all with different qualities and usage. 
+    \item Lists are created using square brackets.
+\end{itemize}
+
+Example: 
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+print(mylist) # Output is ['apple', 'banana', 'cherry']
+\end{minted}
+
+\subsubsection{List Items}
+\begin{itemize}
+    \item List items are \textbf{ordered, changeable,} and allow \textbf{duplicate} values.
+    \item List items are indexed, the first item has index \mintinline{python}{[0]}, the second item has index \mintinline{python}{[1]} etc. 
+\end{itemize}
+
+Ordered:
+\begin{itemize}
+    \item When we say that lists are ordered, it means that the items have a defined order, and that order will not change.
+    \item If you add new items to a list, the new items will be placed at the end of the list.
+    \item Note: There are some list methods that will change the order, but in general: the order of the items will not change.
+\end{itemize}
+ 
+Changeable:
+\begin{itemize}
+    \item The list is changeable, meaning that we can change, add, and remove items in a list after it has been created. 
+\end{itemize}
+
+Allow Duplicates:
+\begin{itemize}
+    \item Since lists are indexed, lists can have items with the same value. For example:
+\end{itemize}
+
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry", "apple", "cherry"]
+print(mylist) # Output is ['apple', 'banana', 'cherry', 'apple', 'cherry']
+\end{minted} 
+
+List Length:\\
+To determine how many items a list has, use the \mintinline{python}{len()} function. \\ 
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+print(len(mylist)) # Output is 3
+\end{minted} 
+
+Data Types: \\
+\begin{itemize}
+    \item List items can be of any data type. 
+    \item A list can contain different data types.
+    \item From Python,s perspective, lists are defined s objects with the data type 'list': \mintinline{python}{< class 'list'>}
+\end{itemize}
+
+Examples:
+\begin{minted}{python}
+# Examples of different lists 
+list1 = ["apple", "banana", "cherry"]
+list2 = [1, 5, 7, 9, 3] 
+list3 = [True, False, False]
+list4 = ["abc", 34, True, 40, "male"]
+
+print(type(list1)) # Output is < class 'list'>
+\end{minted} 
+
+The \mintinline{python}{list()} Constructor: \\
+It is also possible to use the \mintinline{python}{list()} constructor when creating a new list. For example:
+\begin{minted}{python}
+mylist = list(("apple", "banana", "cherry")) # Note the double round-brackets
+print(mylist)
+\end{minted} 
+
+\subsubsection{Access List Items}
+Access Items:
+\begin{itemize}
+    \item List items are indexed and you can access them bt referring to their index number
+    \item \hl{\textbf{REMEMBER:} The first item has index 0.}
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+print(mylist[1]) # Output is banana 
+\end{minted} 
+
+Negative Indexing:
+\begin{itemize}
+    \item Negative indexing means start from the end. 
+    \item -1 refers to the last item, -2 refers to the second last item etc. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+print(mylist[-1]) # Output is cherry 
+\end{minted} 
+
+Range of Indexes:
+\begin{itemize}
+    \item You can specify a range of indexes by specifying where to start and where to end the range.
+    \item When specifying a range, the return value will be a new list with the specified items. 
+    \item For the range, 2:5, the search will start at index 2 (included) and end at index 5 (not included). 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Return the third, fourth, and fifth item 
+mylist =["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(mylist[2:5]) # Output is ['cherry', 'orange', 'kiwi']
+\end{minted} 
+
+By leaving out the end value, the range will go on to the end of the list. \\
+
+Example: 
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(mylist[2:]) # Returns the items from "cherry" to the end 
+\end{minted} 
+
+Range of Negative Indexes: \\
+Specify negative indexes if you want to start the search from the end of the list. \\
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(mylist[-4:-1]) # Output is ["orange", "kiwi", "melon"]
+\end{minted} 
+
+Check if Item Exists: \\
+To determine if a specified item is present in a list use the \mintinline{python}{in} keyword. \\
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+if "apple" in mylist:
+    print("Yes, 'apple' is in the fruits list")
+\end{minted}
+
+\subsubsection{Change List Items}
+Change Item Value: \\
+To change the value of a specific item, refer to the index number. \\
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+mylist[1] = "blackcurrant"
+print(mylist) # Output is ['apple', 'blackcurrant', 'cherry']
+\end{minted}
+
+Change a Range of Item Values: \\
+To change the value of items within a specific range, define a list with the new values, and refer to the range of index numbers where you want to insert the new values. \\
+
+Example:
+\begin{minted}{python}
+# Change the values "banana" and "cherry" with the values "blackcurrant" and "watermelon" 
+mylist = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+mylist[1:3] = ["blackcurrant", "watermelon"]
+print(mylist) # Output is ['apple', 'blackcurrant', "watermelon', 'orange', 'kiwi', 'mango']
+\end{minted}
+
+If you insert \textit{more} items than you replace:
+\begin{itemize}
+    \item The new items will be inserted where you specified, and the remaining items will move accordingly.
+    \item The length of the list will change. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+mylist[1:2] = ["blackcurrant", "watermelon"]
+print(mylist) # Output is ['apple', 'blackcurrant', 'watermelon', 'cherry']
+\end{minted}
+
+If you insert \textit{less} items than you replace, the new items will be inserted where you specified, and the remaining items will move accordingly. \\
+
+Example:
+\begin{minted}{python}
+# Change the second and third value by replacing it with one value 
+mylist = ["apple", "banana", "cherry"]
+mylist[1:3] = "watermelon"
+print(mylist) # Output is ['apple', 'watermelon']
+\end{minted}
+
+\subsubsection{Add List Items}
+Append Items: \\ 
+To add an item to the \textbf{end} of the list, use the \mintinline{python}{append()} method. For example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+mylist.append("orange")
+print(mylist) # Output is ['apple', 'banana', 'cherry', 'orange']
+\end{minted}
+
+Insert Items:
+\begin{itemize}
+    \item To insert a new list item, without replacing any of the existing values, we can use the \mintinline{python}{insert()} method.
+    \item The \mintinline{python}{insert()} method inserts an item at the specified index. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Insert "watermelon" as the third item 
+mylist = ["apple", "banana", "cherry"]
+mylist.insert(2, "watermelon")
+print(mylist) # Output is ['apple', 'banana', 'watermelon', 'cherry']
+\end{minted}
+
+Extend List: \\
+\begin{itemize} 
+    \item To append elements from \textit{another list} to the current list, use the \mintinline{python}{extend()} method. 
+    \item The elements will be added to the \textbf{end} of the list.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+mylist.extend(tropical)
+print(mylist) # Output is ['apple', 'banana', 'cherry', 'mango', 'pineapple', 'papaya']
+\end{minted}
+
+Add Any Iterable: \\
+The \mintinline{python}{extend()} method does not have to append \textit{lists}, you can add any iterable object (tuples, sets, dictionaries etc.). For example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+mytuple = ("kiwi", "orange")
+mylist.extend(mytuple)
+print(mylist) # Output is ['apple', 'banana', 'cherry', 'kiwi', 'orange']
+\end{minted}
+
+\subsubsection{Remove List Items}
+Remove Specified Item: 
+\begin{itemize}
+    \item The \mintinline{python}{remove()} method removes the specified item.
+    \item If there are more than one item with the specified value, the \mintinline{python}{remove()} method removes the first occurence.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry", "banana", "kiwi"]
+mylist.remove("banana")
+print(mylist) # Output is ['apple', 'cherry', 'banana', 'kiwi']
+\end{minted}
+
+Remove Specified Index:
+\begin{itemize}
+    \item The \mintinline{python}{pop()} method removes the specified index.
+    \item If you do not specify the index, the \mintinline{python}{pop()} method removes the last item.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Specified Index 
+mylist = ["apple", "banana", "cherry", "dragon fruit"]
+mylist.pop(1)
+print(mylist) # Output is ['apple', 'cherry', 'dragon fruit']
+
+# Unspecified Index 
+mylist.pop()
+print(mylist)# Output is ['apple', 'cherry']
+\end{minted}
+
+\begin{itemize}
+    \item The \mintinline{python}{del()} keyword also removes the specified index.
+    \item The \mintinline{python}{del()} keyword can also delete the list completely.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Delete the specified index 
+mylist = ["apple", "banana", "cherry"]
+del mylist[0]
+print(mylist) # Output is ['banana', 'cherry']
+
+# Delete the list completely 
+del mylist 
+print(mylist) # This will cause an error because you have successfully deleted "mylist", 
+\end{minted}
+
+Clear the List:
+\begin{itemize}
+    \item The \mintinline{python}{clear()} method empties the list. 
+    \item The list still remains, but it has no content. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+mylist.clear()
+print(mylist) # Output is []
+\end{minted}
+
+\subsubsection{Loop Lists}
+Loop Through a List:
+You can loop through the list items by using a \mintinline{python}{for} loop. \\ 
+
+Example:
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+for x in mylist:
+    print(x) # Output is apple banana cherry (on separate lines)
+\end{minted} 
+
+Loop Through the Index Numbers:
+\begin{itemize}
+    \item You can also loop through the list items by referring to their index number.
+    \item Use the \mintinline{python}{range()} and \mintinline{python}{len()} functions to create a suitable iterable.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Print all items by referring to their index number
+mylist = ["apple", "banana", "cherry"]
+for i in range(len(mylist)):
+    print(mylist[i]) # Output is apple banana cherry (on separate lines)
+\end{minted}
+
+Using a While Loop:
+\begin{itemize}
+    \item You can loop through the list items by using a \mintinline{python}{while} loop.
+    \item Use the \mintinline{python}{len()} function to determine the length of the list, then start at 0 and loop your way through the list items by referring to their indexes.
+    \item Remember to increase the index by 1 after each interation.
+\end{itemize}
+
+\begin{minted}{python}
+mylist = ["apple", "banana", "cherry"]
+i = 0
+
+while i < len(mylist):
+    print(mylist[i])
+    i = i + 1 # Output is apple banana cherry (on separate lines)
+\end{minted}
+
+Looping Using List Comprehension: \\
+\textbf{List comprehension} offers the shortest syntax for looping through lists. \\
+
+Example:
+\begin{minted}{python}
+# A shorthand for loop that will print all items in a list 
+mylist = ["apple", "banana", "cherry"]
+[print(x) for x in mylist] # Output is apple banana cherry (on separate lines)
+\end{minted}
+
+\subsubsection{List Comprehension}
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list. \\
+
+Example:
+\begin{itemize}
+    \item Based on a list of fruits, you want a new list, containing only the fruits with the letter "a" in the name.
+    \item Without list comprehension you will have to write a \mintinline{python}{for} statement with a conditional test inside: 
+\end{itemize}
+
+\begin{minted}{python}
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+    if "a" in x:
+        newlist.append(x)
+
+print(newlist) # Output is ['apple', 'banana', 'mango']
+\end{minted}
+
+With list comprehension you can do all that with only one line of code:
+\begin{minted}{python}
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist) # Output is ['apple', 'banana', 'mango']
+\end{minted}
+
+The Syntax:
+\begin{minted}[bgcolor= lightgray]{python}
+newlist = [expression for item in iterable if condition == True]
+\end{minted}
+
+The return value is a new list, leaving the old list unchanged. 
+\begin{itemize}
+    \item The \textbf{condition} is like a filter that only accepts the items that evaluate to \mintinline{python}{True}. It is optional and can be omitted.
+    \item The \textbf{iterable} can be any iterable object, like a list, tuple, set etc. 
+    \item The \textbf{expression} is the current item in the iteration, but it is also the outcome, which you can manipulate before it ends up like a list item in the new list. You can set the outcome to whatever you like. 
+\end{itemize}
+
+Later:
+\begin{itemize}
+    \item Using enumerate() with lists? 
+\end{itemize}
+
